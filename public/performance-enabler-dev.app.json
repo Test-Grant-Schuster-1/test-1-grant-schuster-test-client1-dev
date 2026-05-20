@@ -1,0 +1,522 @@
+{
+  "id": "app_1777465624927",
+  "name": "Performance Enabler Dev",
+  "slug": "performance-enabler-dev",
+  "environment": "dev",
+  "pages": [
+    {
+      "kind": "standard",
+      "appId": "app_1777465624927",
+      "views": [
+        {
+          "kind": "table",
+          "pageId": "page_1777500045104",
+          "dataSource": {
+            "mode": "direct",
+            "table": "position",
+            "filterGroups": [
+              {
+                "conditions": [
+                  {
+                    "field": "createdby",
+                    "operator": "eq",
+                    "value": "$currentUser"
+                  }
+                ]
+              }
+            ]
+          },
+          "id": "view_1777500084517",
+          "order": 0,
+          "createdAt": "2026-04-29T22:01:24.517Z",
+          "updatedAt": "2026-04-30T04:43:42.214Z",
+          "fields": [
+            "name",
+            "statecode",
+            "parentpositionid",
+            "cr_datestart",
+            "cr_occupancy",
+            "createdon",
+            "createdby"
+          ],
+          "sortField": "name",
+          "sortDir": "asc",
+          "linkedPageIds": [
+            "page_1777521223015",
+            "page_1777524162942"
+          ],
+          "label": "Positions",
+          "columnOrder": [
+            "name",
+            "link:page_1777521223015",
+            "statecode",
+            "parentpositionid",
+            "cr_datestart",
+            "cr_occupancy",
+            "createdon",
+            "createdby",
+            "link:page_1777524162942"
+          ]
+        },
+        {
+          "kind": "table",
+          "pageId": "page_1777500045104",
+          "dataSource": {
+            "mode": "userConnected",
+            "hops": [
+              {
+                "fromTable": "systemuser",
+                "toTable": "appointment",
+                "relationshipSchemaName": "lk_appointment_createdby",
+                "direction": "incoming",
+                "fromField": "systemuserid",
+                "toField": "createdby"
+              }
+            ],
+            "filterGroups": []
+          },
+          "id": "view_1777518603857",
+          "order": 1,
+          "createdAt": "2026-04-30T03:10:03.857Z",
+          "updatedAt": "2026-04-30T04:44:33.961Z",
+          "label": "Appointments created by the logged in user",
+          "fields": [
+            "scheduledend",
+            "scheduledstart",
+            "regardingobjectid",
+            "ownerid",
+            "createdby"
+          ],
+          "linkedPageIds": [
+            "page_1777524262421"
+          ],
+          "columnOrder": [
+            "link:page_1777524262421",
+            "scheduledend",
+            "scheduledstart",
+            "regardingobjectid",
+            "ownerid",
+            "createdby"
+          ]
+        },
+        {
+          "kind": "urlLink",
+          "pageId": "page_1777500045104",
+          "id": "view_1777520478311",
+          "order": 2,
+          "createdAt": "2026-04-30T03:41:18.311Z",
+          "updatedAt": "2026-04-30T03:41:36.978Z",
+          "label": "Simply Now",
+          "url": "https://www.simplynow.com.au"
+        }
+      ],
+      "name": "All Positions",
+      "slug": "all-positions",
+      "inNav": true,
+      "navOrder": 0,
+      "id": "page_1777500045104",
+      "createdAt": "2026-04-29T22:00:45.104Z",
+      "updatedAt": "2026-04-30T04:44:33.961Z"
+    },
+    {
+      "kind": "standard",
+      "appId": "app_1777465624927",
+      "views": [],
+      "name": "Update Position",
+      "slug": "update-position",
+      "inNav": false,
+      "navOrder": 1,
+      "id": "page_1777520628261",
+      "createdAt": "2026-04-30T03:43:48.261Z",
+      "updatedAt": "2026-04-30T21:21:14.442Z"
+    },
+    {
+      "kind": "singleRecord",
+      "appId": "app_1777465624927",
+      "name": "Position Detail",
+      "slug": "position-detail",
+      "inNav": false,
+      "views": [
+        {
+          "kind": "detail",
+          "pageId": "page_1777521223015",
+          "dataSource": {
+            "mode": "anchor",
+            "hops": [],
+            "filterGroups": []
+          },
+          "id": "view_1777596515663",
+          "order": 0,
+          "createdAt": "2026-05-01T00:48:35.663Z",
+          "updatedAt": "2026-05-01T00:49:23.664Z",
+          "formFields": [
+            {
+              "field": "cr_currentincumbentstaffmemberid",
+              "label": "Current Incumbent Staff Member",
+              "order": 0
+            },
+            {
+              "field": "name",
+              "label": "Name",
+              "order": 1
+            },
+            {
+              "field": "modifiedon",
+              "label": "Modified On",
+              "order": 2
+            },
+            {
+              "field": "overriddencreatedon",
+              "label": "Record Created On",
+              "order": 3
+            },
+            {
+              "field": "parentpositionid",
+              "label": "Parent Position",
+              "order": 4
+            },
+            {
+              "field": "statecode",
+              "label": "Status",
+              "order": 5
+            },
+            {
+              "field": "crfc3_coordinatorposition",
+              "label": "Coordinator Position",
+              "order": 6
+            },
+            {
+              "field": "crfc3_managerposition",
+              "label": "Manager Position",
+              "order": 7
+            },
+            {
+              "field": "statuscode",
+              "label": "Status Reason",
+              "order": 8
+            }
+          ]
+        },
+        {
+          "kind": "detail",
+          "pageId": "page_1777521223015",
+          "dataSource": {
+            "mode": "anchor",
+            "hops": [
+              {
+                "fromTable": "position",
+                "toTable": "cr_staffmember",
+                "relationshipSchemaName": "cr_cr_staffmember_position_currentincumbentstaffmemberid",
+                "direction": "outgoing",
+                "fromField": "cr_currentincumbentstaffmemberid",
+                "toField": "cr_staffmemberid"
+              }
+            ],
+            "filterGroups": []
+          },
+          "id": "view_1777596883300",
+          "order": 1,
+          "createdAt": "2026-05-01T00:54:43.300Z",
+          "updatedAt": "2026-05-01T00:54:56.655Z",
+          "formFields": [
+            {
+              "field": "cr_currentincumbentstaffmemberid",
+              "label": "Current Incumbent Staff Member",
+              "order": 0
+            },
+            {
+              "field": "name",
+              "label": "Name",
+              "order": 1
+            },
+            {
+              "field": "modifiedon",
+              "label": "Modified On",
+              "order": 2
+            },
+            {
+              "field": "overriddencreatedon",
+              "label": "Record Created On",
+              "order": 3
+            },
+            {
+              "field": "parentpositionid",
+              "label": "Parent Position",
+              "order": 4
+            },
+            {
+              "field": "statecode",
+              "label": "Status",
+              "order": 5
+            },
+            {
+              "field": "crfc3_coordinatorposition",
+              "label": "Coordinator Position",
+              "order": 6
+            },
+            {
+              "field": "crfc3_managerposition",
+              "label": "Manager Position",
+              "order": 7
+            },
+            {
+              "field": "statuscode",
+              "label": "Status Reason",
+              "order": 8
+            }
+          ]
+        }
+      ],
+      "parentPageId": "page_1777500045104",
+      "primaryTable": "position",
+      "id": "page_1777521223015",
+      "createdAt": "2026-04-30T03:53:43.015Z",
+      "updatedAt": "2026-05-01T00:54:56.655Z"
+    },
+    {
+      "kind": "singleRecord",
+      "appId": "app_1777465624927",
+      "name": "Position Edit",
+      "slug": "position-edit",
+      "inNav": false,
+      "views": [],
+      "parentPageId": "page_1777500045104",
+      "primaryTable": "position",
+      "id": "page_1777524162942",
+      "createdAt": "2026-04-30T04:42:42.942Z",
+      "updatedAt": "2026-04-30T04:42:59.184Z"
+    },
+    {
+      "kind": "singleRecord",
+      "appId": "app_1777465624927",
+      "name": "Appointment Detail",
+      "slug": "appointment-detail",
+      "inNav": false,
+      "views": [
+        {
+          "kind": "detail",
+          "pageId": "page_1777524262421",
+          "dataSource": {
+            "mode": "anchor",
+            "hops": [],
+            "filterGroups": []
+          },
+          "id": "view_1777584322641",
+          "order": 0,
+          "createdAt": "2026-04-30T21:25:22.641Z",
+          "updatedAt": "2026-04-30T21:25:22.641Z"
+        }
+      ],
+      "parentPageId": "page_1777500045104",
+      "primaryTable": "appointment",
+      "id": "page_1777524262421",
+      "createdAt": "2026-04-30T04:44:22.421Z",
+      "updatedAt": "2026-04-30T21:25:22.641Z"
+    },
+    {
+      "kind": "standard",
+      "appId": "app_1777465624927",
+      "views": [
+        {
+          "kind": "table",
+          "pageId": "page_1777550134366",
+          "dataSource": {
+            "mode": "direct",
+            "table": "systemuser",
+            "filterGroups": []
+          },
+          "id": "view_1777550356264",
+          "order": 0,
+          "createdAt": "2026-04-30T11:59:16.264Z",
+          "updatedAt": "2026-04-30T12:02:03.053Z",
+          "label": "Users",
+          "columnOrder": [
+            "domainname",
+            "employeeid",
+            "link:page_1777550481519",
+            "fullname",
+            "isdisabled"
+          ],
+          "fields": [
+            "domainname",
+            "employeeid",
+            "fullname",
+            "isdisabled"
+          ],
+          "linkedPageIds": [
+            "page_1777550481519"
+          ],
+          "sortField": "fullname",
+          "sortDir": "asc"
+        }
+      ],
+      "name": "Users",
+      "slug": "users",
+      "inNav": true,
+      "navOrder": 2,
+      "id": "page_1777550134366",
+      "createdAt": "2026-04-30T11:55:34.366Z",
+      "updatedAt": "2026-04-30T12:02:03.053Z"
+    },
+    {
+      "kind": "singleRecord",
+      "appId": "app_1777465624927",
+      "name": "User Detail",
+      "slug": "user-detail",
+      "inNav": false,
+      "views": [
+        {
+          "kind": "detail",
+          "pageId": "page_1777550481519",
+          "dataSource": {
+            "mode": "anchor",
+            "hops": [],
+            "filterGroups": []
+          },
+          "id": "view_1777553360434",
+          "order": 0,
+          "createdAt": "2026-04-30T12:49:20.434Z",
+          "updatedAt": "2026-04-30T20:29:21.672Z",
+          "label": "User Details",
+          "formFields": [
+            {
+              "field": "address1_city",
+              "label": "City",
+              "order": 0
+            },
+            {
+              "field": "isdisabled",
+              "label": "Status",
+              "order": 1
+            },
+            {
+              "field": "emailrouteraccessapproval",
+              "label": "Primary Email Status",
+              "order": 2
+            },
+            {
+              "field": "fullname",
+              "label": "Full Name",
+              "order": 3
+            }
+          ]
+        },
+        {
+          "kind": "actionButton",
+          "pageId": "page_1777550481519",
+          "id": "view_1777555429442",
+          "order": 1,
+          "createdAt": "2026-04-30T13:23:49.442Z",
+          "updatedAt": "2026-04-30T13:24:04.594Z",
+          "label": "useless action button"
+        },
+        {
+          "kind": "detail",
+          "pageId": "page_1777550481519",
+          "dataSource": {
+            "mode": "anchor",
+            "hops": [],
+            "filterGroups": []
+          },
+          "id": "view_1777555632688",
+          "order": 2,
+          "createdAt": "2026-04-30T13:27:12.688Z",
+          "updatedAt": "2026-04-30T21:20:51.998Z",
+          "formFields": [
+            {
+              "field": "isdisabled",
+              "label": "Status",
+              "order": 0
+            },
+            {
+              "field": "domainname",
+              "label": "User Name",
+              "order": 1
+            },
+            {
+              "field": "parentsystemuserid",
+              "label": "Manager",
+              "order": 2
+            },
+            {
+              "field": "fullname",
+              "label": "Full Name",
+              "order": 3
+            }
+          ],
+          "label": "User Details view 2"
+        }
+      ],
+      "parentPageId": "page_1777550134366",
+      "primaryTable": "systemuser",
+      "id": "page_1777550481519",
+      "createdAt": "2026-04-30T12:01:21.519Z",
+      "updatedAt": "2026-04-30T21:20:51.998Z"
+    },
+    {
+      "kind": "standard",
+      "appId": "app_1777465624927",
+      "views": [
+        {
+          "kind": "table",
+          "pageId": "page_1777601774782",
+          "dataSource": {
+            "mode": "userConnected",
+            "hops": [
+              {
+                "fromTable": "systemuser",
+                "toTable": "crfc3_staffappointment",
+                "relationshipSchemaName": "crfc3_StaffAppointment_AppointedUser_SystemUser",
+                "direction": "incoming",
+                "fromField": "systemuserid",
+                "toField": "crfc3_appointeduser"
+              },
+              {
+                "fromTable": "crfc3_staffappointment",
+                "toTable": "position",
+                "relationshipSchemaName": "crfc3_StaffAppointment_Position_Position",
+                "direction": "outgoing",
+                "fromField": "crfc3_position",
+                "toField": "positionid"
+              }
+            ],
+            "filterGroups": []
+          },
+          "id": "view_1777700711539",
+          "order": 0,
+          "createdAt": "2026-05-02T05:45:11.539Z",
+          "updatedAt": "2026-05-02T05:45:50.955Z",
+          "columnOrder": [
+            "name",
+            "cr_currentincumbentstaffmemberid",
+            "cr_datestart",
+            "cr_occupancy",
+            "crfc3_coordinatorposition",
+            "link:page_1777521223015"
+          ],
+          "fields": [
+            "name",
+            "cr_currentincumbentstaffmemberid",
+            "cr_datestart",
+            "cr_occupancy",
+            "crfc3_coordinatorposition"
+          ],
+          "linkedPageIds": [
+            "page_1777521223015"
+          ],
+          "sortField": "name",
+          "sortDir": "asc"
+        }
+      ],
+      "name": "My Positions",
+      "slug": "my-positions",
+      "inNav": true,
+      "navOrder": 3,
+      "id": "page_1777601774782",
+      "createdAt": "2026-05-01T02:16:14.782Z",
+      "updatedAt": "2026-05-02T05:45:50.955Z"
+    }
+  ],
+  "createdAt": "2026-04-29T12:27:04.927Z",
+  "updatedAt": "2026-05-02T05:45:50.955Z"
+}

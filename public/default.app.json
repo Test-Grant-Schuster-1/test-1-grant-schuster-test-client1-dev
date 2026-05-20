@@ -1,0 +1,107 @@
+{
+  "id": "app-default",
+  "name": "Council Performance",
+  "slug": "default",
+  "environment": "dev",
+  "description": "Sample app for local development",
+  "pages": [
+    {
+      "id": "page-staff",
+      "appId": "app-default",
+      "kind": "standard",
+      "name": "Staff",
+      "slug": "staff",
+      "navOrder": 1,
+      "inNav": true,
+      "views": [
+        {
+          "id": "view-staff-table",
+          "pageId": "page-staff",
+          "order": 1,
+          "kind": "table",
+          "label": "All Staff",
+          "dataSource": {
+            "mode": "direct",
+            "table": "cr_staff",
+            "filterGroups": []
+          },
+          "fields": ["cr_name", "cr_status", "createdon", "cr_email"],
+          "linkedPageIds": ["page-staff-detail"],
+          "createdAt": "2026-04-30T00:00:00Z",
+          "updatedAt": "2026-04-30T00:00:00Z"
+        }
+      ],
+      "createdAt": "2026-04-30T00:00:00Z",
+      "updatedAt": "2026-04-30T00:00:00Z"
+    },
+    {
+      "id": "page-staff-detail",
+      "appId": "app-default",
+      "kind": "singleRecord",
+      "name": "Staff Detail",
+      "slug": "staff-detail",
+      "parentPageId": "page-staff",
+      "primaryTable": "cr_staff",
+      "inNav": false,
+      "views": [
+        {
+          "id": "view-staff-detail-info",
+          "pageId": "page-staff-detail",
+          "order": 1,
+          "kind": "detail",
+          "label": "Staff Information",
+          "dataSource": {
+            "mode": "direct",
+            "table": "cr_staff",
+            "filterGroups": []
+          },
+          "fields": ["cr_name", "cr_status", "createdon", "cr_email"],
+          "createdAt": "2026-04-30T00:00:00Z",
+          "updatedAt": "2026-04-30T00:00:00Z"
+        }
+      ],
+      "createdAt": "2026-04-30T00:00:00Z",
+      "updatedAt": "2026-04-30T00:00:00Z"
+    },
+    {
+      "id": "page-actions",
+      "appId": "app-default",
+      "kind": "standard",
+      "name": "Actions",
+      "slug": "actions",
+      "navOrder": 2,
+      "inNav": true,
+      "views": [
+        {
+          "id": "view-actions-table",
+          "pageId": "page-actions",
+          "order": 1,
+          "kind": "table",
+          "label": "All Actions",
+          "dataSource": {
+            "mode": "direct",
+            "table": "cr_action",
+            "filterGroups": []
+          },
+          "fields": ["cr_name", "cr_status", "cr_duedate", "cr_actionarea"],
+          "createdAt": "2026-04-30T00:00:00Z",
+          "updatedAt": "2026-04-30T00:00:00Z"
+        },
+        {
+          "id": "view-actions-link",
+          "pageId": "page-actions",
+          "order": 2,
+          "kind": "pageLink",
+          "label": "View Staff",
+          "targetPageId": "page-staff",
+          "createdAt": "2026-04-30T00:00:00Z",
+          "updatedAt": "2026-04-30T00:00:00Z"
+        }
+      ],
+      "createdAt": "2026-04-30T00:00:00Z",
+      "updatedAt": "2026-04-30T00:00:00Z"
+    }
+  ],
+  "createdAt": "2026-04-30T00:00:00Z",
+  "updatedAt": "2026-04-30T00:00:00Z"
+}
