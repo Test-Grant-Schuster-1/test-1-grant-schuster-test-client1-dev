@@ -15,7 +15,25 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - name: Install and build
+        env:
+          # Runtime SPA config (build-time VITE_*), injected as repo Actions secrets by provisioning.
+          VITE_DATAVERSE_URL: ${{ secrets.VITE_DATAVERSE_URL }}
+          VITE_TENANT_ID: ${{ secrets.VITE_TENANT_ID }}
+          VITE_SP_CLIENT_ID: ${{ secrets.VITE_SP_CLIENT_ID }}
+          VITE_REDIRECT_URI: ${{ secrets.VITE_REDIRECT_URI }}
+          VITE_APP_SLUG: ${{ secrets.VITE_APP_SLUG }}
+          # Read-only PAT (read:packages) that authenticates the .npmrc to GitHub Packages so
+          # npm ci can install @simply-now-enabler/performance-enabler-frontend.
+          NPM_GITHUB_PAT: ${{ secrets.NPM_GITHUB_PAT }}
+        run: |
+          npm ci
+          npm run build
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
@@ -23,15 +41,9 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          app_location: "/"
+          app_location: "dist"
           api_location: ""
-          output_location: "dist"
-        env:
-          VITE_DATAVERSE_URL: ${{ secrets.VITE_DATAVERSE_URL }}
-          VITE_TENANT_ID: ${{ secrets.VITE_TENANT_ID }}
-          VITE_SP_CLIENT_ID: ${{ secrets.VITE_SP_CLIENT_ID }}
-          VITE_REDIRECT_URI: ${{ secrets.VITE_REDIRECT_URI }}
-          VITE_APP_SLUG: ${{ secrets.VITE_APP_SLUG }}
+          skip_app_build: true
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'

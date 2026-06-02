@@ -1,15 +1,8 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { resolve } from "path";
 
+// Thin client shell: build src/main.tsx (which mounts the @simply-now-enabler runtime package) to dist/.
 export default defineConfig({
   plugins: [react()],
-  server: {
-    port: 5174,
-  },
-  resolve: {
-    alias: {
-      "@shared": resolve(__dirname, "../../shared"),
-    },
-  },
+  build: { outDir: "dist" },
 });
