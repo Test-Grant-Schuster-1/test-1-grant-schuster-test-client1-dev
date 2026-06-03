@@ -1,0 +1,49 @@
+{
+  "kind": "singleRecord",
+  "name": "Action Detail",
+  "slug": "action-detail",
+  "inNav": false,
+  "views": [
+    {
+      "kind": "detail",
+      "pageId": "page_1779285042293",
+      "dataSource": {
+        "mode": "anchor",
+        "hops": [],
+        "filterGroups": []
+      },
+      "id": "view_1779285067550",
+      "order": 0,
+      "createdAt": "2026-05-20T13:51:07.550Z",
+      "updatedAt": "2026-05-20T13:51:24.564Z",
+      "formFields": [
+        {
+          "field": "cr_name",
+          "label": "Description",
+          "order": 0
+        },
+        {
+          "field": "createdby",
+          "label": "Created By",
+          "order": 1
+        },
+        {
+          "field": "createdbyname",
+          "label": "createdbyname",
+          "order": 2
+        },
+        {
+          "field": "createdon",
+          "label": "Created On",
+          "order": 3
+        }
+      ]
+    }
+  ],
+  "parentPageId": "page_1779284970475",
+  "primaryTable": "cr_pe_action",
+  "id": "page_1779285042293",
+  "createdAt": "2026-05-20T13:50:42.293Z",
+  "updatedAt": "2026-05-20T13:51:24.564Z",
+  "configVersion": 1
+}

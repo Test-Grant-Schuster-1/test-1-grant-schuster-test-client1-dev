@@ -1,1 +1,46 @@
-{"id":"53d7c9fa-3454-f111-bec6-6045bd3df7a0","name":"Test Client1","slug":"test-client1","environment":"dev","pages":[{"kind":"standard","appId":"53d7c9fa-3454-f111-bec6-6045bd3df7a0","views":[{"kind":"table","pageId":"page_1779272205014","dataSource":{"mode":"direct","table":"systemuser","filterGroups":[]},"id":"view_1779272210928","order":0,"createdAt":"2026-05-20T10:16:50.928Z","updatedAt":"2026-05-20T10:21:11.285Z","columnOrder":["fullname","internalemailaddress","overriddencreatedon","parentsystemuserid","positionid","islicensed"],"fields":["fullname","internalemailaddress","overriddencreatedon","parentsystemuserid","positionid","islicensed"],"linkedPageIds":[],"sortField":"fullname","sortDir":"asc"}],"name":"Users","slug":"users","inNav":true,"navOrder":0,"id":"page_1779272205014","createdAt":"2026-05-20T10:16:45.014Z","updatedAt":"2026-05-20T10:21:11.285Z"},{"kind":"standard","appId":"53d7c9fa-3454-f111-bec6-6045bd3df7a0","views":[{"kind":"table","pageId":"page_1779272337846","dataSource":{"mode":"userConnected","hops":[{"fromTable":"systemuser","toTable":"position","relationshipSchemaName":"lk_position_createdby","direction":"incoming","fromField":"systemuserid","toField":"createdby"}],"filterGroups":[]},"id":"view_1779272352896","order":0,"createdAt":"2026-05-20T10:19:12.896Z","updatedAt":"2026-05-20T10:19:44.949Z","label":"Positions created by me","columnOrder":["createdby","name","statecode","createdon","description"],"fields":["createdby","name","statecode","createdon","description"],"linkedPageIds":[],"sortField":"name","sortDir":"asc"}],"name":"Positions","slug":"positions","inNav":true,"navOrder":1,"id":"page_1779272337846","createdAt":"2026-05-20T10:18:57.846Z","updatedAt":"2026-05-20T10:19:44.949Z"},{"kind":"standard","appId":"53d7c9fa-3454-f111-bec6-6045bd3df7a0","views":[{"kind":"table","pageId":"page_1779284970475","dataSource":{"mode":"direct","table":"cr_pe_action","filterGroups":[]},"id":"view_1779285030971","order":0,"createdAt":"2026-05-20T13:50:30.971Z","updatedAt":"2026-05-20T13:50:59.950Z","columnOrder":["cr_name","link:page_1779285042293","ownerid","statecode","createdon","createdby"],"fields":["cr_name","ownerid","statecode","createdon","createdby"],"linkedPageIds":["page_1779285042293"]}],"name":"Actions","slug":"actions","inNav":true,"navOrder":2,"id":"page_1779284970475","createdAt":"2026-05-20T13:49:30.475Z","updatedAt":"2026-05-20T13:50:59.950Z"},{"kind":"singleRecord","appId":"53d7c9fa-3454-f111-bec6-6045bd3df7a0","name":"Action Detail","slug":"action-detail","inNav":false,"views":[{"kind":"detail","pageId":"page_1779285042293","dataSource":{"mode":"anchor","hops":[],"filterGroups":[]},"id":"view_1779285067550","order":0,"createdAt":"2026-05-20T13:51:07.550Z","updatedAt":"2026-05-20T13:51:24.564Z","formFields":[{"field":"cr_name","label":"Description","order":0},{"field":"createdby","label":"Created By","order":1},{"field":"createdbyname","label":"createdbyname","order":2},{"field":"createdon","label":"Created On","order":3}]}],"parentPageId":"page_1779284970475","primaryTable":"cr_pe_action","id":"page_1779285042293","createdAt":"2026-05-20T13:50:42.293Z","updatedAt":"2026-05-20T13:51:24.564Z"}],"createdAt":"2026-05-20T10:16:32.502Z","updatedAt":"2026-05-20T13:51:24.564Z"}
+{
+  "id": "53d7c9fa-3454-f111-bec6-6045bd3df7a0",
+  "name": "Test Client1",
+  "slug": "test-client1",
+  "environment": "dev",
+  "configVersion": 1,
+  "pageIndex": [
+    {
+      "pageId": "page_1779272205014",
+      "pageSlug": "users",
+      "pageName": "Users",
+      "position": 0,
+      "kind": "standard",
+      "inNav": true
+    },
+    {
+      "pageId": "page_1779272337846",
+      "pageSlug": "positions",
+      "pageName": "Positions",
+      "position": 1,
+      "kind": "standard",
+      "inNav": true
+    },
+    {
+      "pageId": "page_1779284970475",
+      "pageSlug": "actions",
+      "pageName": "Actions",
+      "position": 2,
+      "kind": "standard",
+      "inNav": true
+    },
+    {
+      "pageId": "page_1779285042293",
+      "pageSlug": "action-detail",
+      "pageName": "Action Detail",
+      "position": 3,
+      "kind": "singleRecord",
+      "inNav": false,
+      "parentPageId": "page_1779284970475",
+      "primaryTable": "cr_pe_action"
+    }
+  ],
+  "createdAt": "2026-05-20T10:16:32.502Z",
+  "updatedAt": "2026-05-20T13:51:24.564Z",
+  "deployVersion": "2026-06-03T01:06:49.108Z"
+}

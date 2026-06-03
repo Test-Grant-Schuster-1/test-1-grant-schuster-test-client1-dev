@@ -1,0 +1,43 @@
+{
+  "kind": "standard",
+  "views": [
+    {
+      "kind": "table",
+      "pageId": "page_1779284970475",
+      "dataSource": {
+        "mode": "direct",
+        "table": "cr_pe_action",
+        "filterGroups": []
+      },
+      "id": "view_1779285030971",
+      "order": 0,
+      "createdAt": "2026-05-20T13:50:30.971Z",
+      "updatedAt": "2026-05-20T13:50:59.950Z",
+      "columnOrder": [
+        "cr_name",
+        "link:page_1779285042293",
+        "ownerid",
+        "statecode",
+        "createdon",
+        "createdby"
+      ],
+      "fields": [
+        "cr_name",
+        "ownerid",
+        "statecode",
+        "createdon",
+        "createdby"
+      ],
+      "linkedPageIds": [
+        "page_1779285042293"
+      ]
+    }
+  ],
+  "name": "Actions",
+  "slug": "actions",
+  "inNav": true,
+  "id": "page_1779284970475",
+  "createdAt": "2026-05-20T13:49:30.475Z",
+  "updatedAt": "2026-05-20T13:50:59.950Z",
+  "configVersion": 1
+}

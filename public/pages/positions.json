@@ -1,0 +1,52 @@
+{
+  "kind": "standard",
+  "views": [
+    {
+      "kind": "table",
+      "pageId": "page_1779272337846",
+      "dataSource": {
+        "mode": "userConnected",
+        "hops": [
+          {
+            "fromTable": "systemuser",
+            "toTable": "position",
+            "relationshipSchemaName": "lk_position_createdby",
+            "direction": "incoming",
+            "fromField": "systemuserid",
+            "toField": "createdby"
+          }
+        ],
+        "filterGroups": []
+      },
+      "id": "view_1779272352896",
+      "order": 0,
+      "createdAt": "2026-05-20T10:19:12.896Z",
+      "updatedAt": "2026-05-20T10:19:44.949Z",
+      "label": "Positions created by me",
+      "columnOrder": [
+        "createdby",
+        "name",
+        "statecode",
+        "createdon",
+        "description"
+      ],
+      "fields": [
+        "createdby",
+        "name",
+        "statecode",
+        "createdon",
+        "description"
+      ],
+      "linkedPageIds": [],
+      "sortField": "name",
+      "sortDir": "asc"
+    }
+  ],
+  "name": "Positions",
+  "slug": "positions",
+  "inNav": true,
+  "id": "page_1779272337846",
+  "createdAt": "2026-05-20T10:18:57.846Z",
+  "updatedAt": "2026-05-20T10:19:44.949Z",
+  "configVersion": 1
+}

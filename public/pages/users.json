@@ -1,0 +1,44 @@
+{
+  "kind": "standard",
+  "views": [
+    {
+      "kind": "table",
+      "pageId": "page_1779272205014",
+      "dataSource": {
+        "mode": "direct",
+        "table": "systemuser",
+        "filterGroups": []
+      },
+      "id": "view_1779272210928",
+      "order": 0,
+      "createdAt": "2026-05-20T10:16:50.928Z",
+      "updatedAt": "2026-05-20T10:21:11.285Z",
+      "columnOrder": [
+        "fullname",
+        "internalemailaddress",
+        "overriddencreatedon",
+        "parentsystemuserid",
+        "positionid",
+        "islicensed"
+      ],
+      "fields": [
+        "fullname",
+        "internalemailaddress",
+        "overriddencreatedon",
+        "parentsystemuserid",
+        "positionid",
+        "islicensed"
+      ],
+      "linkedPageIds": [],
+      "sortField": "fullname",
+      "sortDir": "asc"
+    }
+  ],
+  "name": "Users",
+  "slug": "users",
+  "inNav": true,
+  "id": "page_1779272205014",
+  "createdAt": "2026-05-20T10:16:45.014Z",
+  "updatedAt": "2026-05-20T10:21:11.285Z",
+  "configVersion": 1
+}
