@@ -11,7 +11,7 @@
   --pe-color-text: #1b2733;
   --pe-color-text-secondary: #5f6870;
   --pe-color-text-muted: #8d9399;
-  --pe-font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --pe-font-family-base: "Roboto", -apple-system, "Segoe UI", sans-serif;
   --pe-radius-md: 6px;
   --pe-shadow-md: none;
   --pe-shadow-sm: none;
