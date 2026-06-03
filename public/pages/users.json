@@ -12,14 +12,15 @@
       "id": "view_1779272210928",
       "order": 0,
       "createdAt": "2026-05-20T10:16:50.928Z",
-      "updatedAt": "2026-05-20T10:21:11.285Z",
+      "updatedAt": "2026-06-03T13:17:12.829Z",
       "columnOrder": [
         "fullname",
         "internalemailaddress",
         "overriddencreatedon",
         "parentsystemuserid",
         "positionid",
-        "islicensed"
+        "islicensed",
+        "link:page_1780492625689"
       ],
       "fields": [
         "fullname",
@@ -29,7 +30,9 @@
         "positionid",
         "islicensed"
       ],
-      "linkedPageIds": [],
+      "linkedPageIds": [
+        "page_1780492625689"
+      ],
       "sortField": "fullname",
       "sortDir": "asc"
     }
@@ -39,6 +42,6 @@
   "inNav": true,
   "id": "page_1779272205014",
   "createdAt": "2026-05-20T10:16:45.014Z",
-  "updatedAt": "2026-05-20T10:21:11.285Z",
+  "updatedAt": "2026-06-03T13:17:12.829Z",
   "configVersion": 1
 }

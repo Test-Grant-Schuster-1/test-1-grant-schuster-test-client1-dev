@@ -1,0 +1,65 @@
+{
+  "id": "page_1780492625689",
+  "appId": "53d7c9fa-3454-f111-bec6-6045bd3df7a0",
+  "name": "User Detail",
+  "slug": "user-detail",
+  "inNav": false,
+  "views": [
+    {
+      "kind": "detail",
+      "pageId": "page_1780492625689",
+      "dataSource": {
+        "mode": "anchor",
+        "hops": [],
+        "filterGroups": []
+      },
+      "id": "view_1780492637256",
+      "order": 0,
+      "createdAt": "2026-06-03T13:17:17.256Z",
+      "updatedAt": "2026-06-03T13:17:53.292Z",
+      "formFields": [
+        {
+          "field": "fullname",
+          "label": "Full Name",
+          "order": 0
+        },
+        {
+          "field": "firstname",
+          "label": "First Name",
+          "order": 1
+        },
+        {
+          "field": "lastname",
+          "label": "Last Name",
+          "order": 2
+        },
+        {
+          "field": "internalemailaddress",
+          "label": "Primary Email",
+          "order": 3
+        },
+        {
+          "field": "mobilephone",
+          "label": "Mobile Phone",
+          "order": 4
+        },
+        {
+          "field": "createdby",
+          "label": "Created By",
+          "order": 5
+        },
+        {
+          "field": "createdon",
+          "label": "Created On",
+          "order": 6
+        }
+      ]
+    }
+  ],
+  "configVersion": 1,
+  "createdAt": "2026-06-03T13:17:05.689Z",
+  "updatedAt": "2026-06-03T13:17:53.292Z",
+  "kind": "singleRecord",
+  "parentPageId": "page_1779272205014",
+  "primaryTable": "systemuser"
+}

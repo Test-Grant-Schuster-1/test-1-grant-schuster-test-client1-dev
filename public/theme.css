@@ -1,0 +1,18 @@
+/* Performance Enabler — per-app Layer 1 theme (compiled at deploy, 03-D-4-d). */
+/* Redefines the themed --pe-* subset on :root, layering over the package's index.css defaults. */
+:root {
+  --pe-color-primary: #255e03;
+  --pe-color-on-primary: #ffffff;
+  --pe-color-link: #060a94;
+  --pe-color-surface: #ffffff;
+  --pe-color-surface-raised: #f2e4e4;
+  --pe-color-surface-alt: #f1f2f3;
+  --pe-color-border: #dfe1e2;
+  --pe-color-text: #1b2733;
+  --pe-color-text-secondary: #5f6870;
+  --pe-color-text-muted: #8d9399;
+  --pe-font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --pe-radius-md: 6px;
+  --pe-shadow-md: none;
+  --pe-shadow-sm: none;
+}

@@ -38,9 +38,19 @@
       "inNav": false,
       "parentPageId": "page_1779284970475",
       "primaryTable": "cr_pe_action"
+    },
+    {
+      "pageId": "page_1780492625689",
+      "pageSlug": "user-detail",
+      "pageName": "User Detail",
+      "position": 4,
+      "kind": "singleRecord",
+      "inNav": false,
+      "parentPageId": "page_1779272205014",
+      "primaryTable": "systemuser"
     }
   ],
   "createdAt": "2026-05-20T10:16:32.502Z",
-  "updatedAt": "2026-05-20T13:51:24.564Z",
-  "deployVersion": "2026-06-03T01:06:49.108Z"
+  "updatedAt": "2026-06-03T13:17:05.689Z",
+  "deployVersion": "2026-06-03T13:18:58.062Z"
 }
