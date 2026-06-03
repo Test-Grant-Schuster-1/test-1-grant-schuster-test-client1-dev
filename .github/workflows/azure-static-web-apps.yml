@@ -9,6 +9,11 @@ on:
     branches:
       - main
 
+# contents: write is required so a framework-update PR can commit the regenerated
+# package-lock.json back to its own branch (LD18 — see "Install dependencies" below).
+permissions:
+  contents: write
+
 jobs:
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
@@ -16,11 +21,46 @@ jobs:
     name: Build and Deploy
     steps:
       - uses: actions/checkout@v6
+        with:
+          # On a pull_request, check out the head branch (not the detached merge ref)
+          # so the lockfile-regen step below can push the regenerated package-lock.json
+          # back to the PR branch. Empty on push events → checkout falls back to the
+          # triggering ref, so main builds are unaffected.
+          ref: ${{ github.head_ref }}
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
           node-version: '22'
-      - name: Install and build
+      - name: Install dependencies
+        env:
+          # Read-only PAT (read:packages) that authenticates the .npmrc to GitHub Packages so
+          # npm ci/npm install can fetch @simply-now-enabler/performance-enabler-frontend.
+          NPM_GITHUB_PAT: ${{ secrets.NPM_GITHUB_PAT }}
+        run: |
+          # npm ci requires package-lock.json to be in sync with package.json.
+          # A framework update whose new version changes the runtime package's OWN
+          # dependency set (e.g. 1.1.0 adds @fluentui/react-components + its transitive
+          # tree) leaves the platform's single-entry lockfile edit internally
+          # inconsistent, so `npm ci` fails. Fall back to `npm install`, which
+          # regenerates a consistent lockfile that resolves the new subtree. See the
+          # platform's docs/frontend-release-model.md "Dependency-set caveat" (LD18).
+          if ! npm ci; then
+            echo "::warning::npm ci failed — regenerating package-lock.json with npm install (dependency-set change)"
+            npm install
+          fi
+      - name: Commit regenerated lockfile (framework-update PRs)
+        # Only framework-update branches push a regenerated lockfile back, so the
+        # merged main tree is consistent and future `npm ci` runs need no fallback.
+        if: github.event_name == 'pull_request' && startsWith(github.head_ref, 'framework-update/')
+        run: |
+          if ! git diff --quiet -- package-lock.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add package-lock.json
+            git commit -m "chore: regenerate package-lock.json for new framework dependency set"
+            git push
+          fi
+      - name: Build
         env:
           # Runtime SPA config (build-time VITE_*), injected as repo Actions secrets by provisioning.
           VITE_DATAVERSE_URL: ${{ secrets.VITE_DATAVERSE_URL }}
@@ -28,12 +68,7 @@ jobs:
           VITE_SP_CLIENT_ID: ${{ secrets.VITE_SP_CLIENT_ID }}
           VITE_REDIRECT_URI: ${{ secrets.VITE_REDIRECT_URI }}
           VITE_APP_SLUG: ${{ secrets.VITE_APP_SLUG }}
-          # Read-only PAT (read:packages) that authenticates the .npmrc to GitHub Packages so
-          # npm ci can install @simply-now-enabler/performance-enabler-frontend.
-          NPM_GITHUB_PAT: ${{ secrets.NPM_GITHUB_PAT }}
-        run: |
-          npm ci
-          npm run build
+        run: npm run build
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
