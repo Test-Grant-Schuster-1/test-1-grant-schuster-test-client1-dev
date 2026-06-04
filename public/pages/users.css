@@ -1,0 +1,18 @@
+  /* Page-specific test — only THIS page should change. */
+  .pe-page[data-pe-page="users"] .pe-page {
+    background: #fff8e1;
+    outline: 4px dashed #f59e0b;
+    outline-offset: -12px;
+  }
+  .pe-page[data-pe-page="users"] .pe-page-title {
+    color: #c026d3;
+  }
+  .pe-page[data-pe-page="users"] .pe-page-title::after {
+    content: " — page CSS is live ✦";
+    font-size: 0.55em;
+    font-weight: 400;
+    color: #16a34a;
+    margin-left: 8px;
+  }
+/*note only*/
+  .pe-page[data-pe-page="users"] .div {padding:10px}

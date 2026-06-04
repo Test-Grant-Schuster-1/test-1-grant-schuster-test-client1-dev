@@ -1,0 +1,4 @@
+/*Change all fonts to Arial*/
+.pe-page[data-pe-page="positions"] .kn-content  div{
+  font-family: Arial, Helvetica, sans-serif;
+}

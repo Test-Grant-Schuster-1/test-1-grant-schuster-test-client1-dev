@@ -1,0 +1,9 @@
+  /* Page-specific test — only THIS page should change. */
+  .pe-page[data-pe-page="actions"] .pe-page {
+    background: #ff3389;
+    outline: 6px dashed #f59e0b;
+    outline-offset: -12px;
+  }
+
+/*note only*/
+  .pe-page[data-pe-page="actions"] .div {padding:10px}
