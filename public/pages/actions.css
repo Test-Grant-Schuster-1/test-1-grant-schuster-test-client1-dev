@@ -1,5 +1,5 @@
   /* Page-specific test — only THIS page should change. */
-  .pe-page[data-pe-page="actions"] .pe-page {
+  .pe-page[data-pe-page="actions"] {
     background: #ff3389;
     outline: 6px dashed #f59e0b;
     outline-offset: -12px;

@@ -1,5 +1,5 @@
   /* Page-specific test — only THIS page should change. */
-  .pe-page[data-pe-page="users"] .pe-page {
+  .pe-page[data-pe-page="users"] {
     background: #fff8e1;
     outline: 4px dashed #f59e0b;
     outline-offset: -12px;
