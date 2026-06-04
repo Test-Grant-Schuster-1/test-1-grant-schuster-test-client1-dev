@@ -5,7 +5,7 @@
     outline-offset: -12px;
   }
   .pe-page[data-pe-page="users"] .pe-page-title {
-    color: #c026d3;
+    color: #c026d3 !important;
   }
   .pe-page[data-pe-page="users"] .pe-page-title::after {
     content: " — page CSS is live ✦";
